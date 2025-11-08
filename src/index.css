@@ -1,23 +1,31 @@
+/* src/index.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Halant&family=Instrument+Sans&family=Island+Moments&display=swap');
 
 :root {
   --font-heading: 'Island Moments', cursive;
   --font-subheading: 'Halant', serif;
   --font-body: 'Instrument Sans', sans-serif;
-
   --color-headline: #0F3255;
   --color-subheadline-orange: #F15D2B;
   --color-button-orange: #F15D2B;
   --color-body-text: #252729;
   --color-nav-links: #000000;
-  --color-bg: #fdfaf9;
+  
+  /* This is the base color UNDER the texture */
+  --color-bg: #fdfaf9; 
+  
   --color-scroll-bar: #FDDCC1;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
+  
+  /* --- THIS IS THE FIX --- */
   background-color: var(--color-bg);
+  background-image: url('./assets/BG.png'); /* Make sure this path is correct */
+  background-repeat: repeat;
 }
 
 * {
@@ -26,7 +34,6 @@ body {
   padding: 0;
 }
 
-.App {
-  background-image: url('./assets/dotted-texture.png');
-  background-repeat: repeat;
+html {
+  scroll-behavior: smooth;
 }
