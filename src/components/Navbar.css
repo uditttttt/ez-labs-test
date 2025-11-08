@@ -1,39 +1,33 @@
-/* src/components/Navbar.css */
-
-/* This is the persistent bar at the top */
 .site-header {
-  position: fixed; /* Sticks to the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%; /* 5% padding on left/right */
+  padding: 1.5rem 5%;
   box-sizing: border-box;
-  z-index: 1000; /* Stays on top of everything */
-  
-  /* This gives it the faint dotted background from your image */
+  z-index: 1000;
   background-color: var(--color-bg-light);
 }
 
 .nav-logo {
-  height: 40px; /* Adjust as needed */
+  height: 40px;
 }
 
-/* This cluster holds the inline menu AND the toggle */
 .nav-right-cluster {
   display: flex;
   align-items: center;
-  gap: 2rem; /* Space between menu and toggle */
+  gap: 2rem;
 }
 
 .nav-toggle {
-  display: block; /* Always visible */
+  display: block;
   cursor: pointer;
   width: 50px;
   height: 50px;
-  z-index: 1001; /* Stays on top */
+  z-index: 1001;
 }
 
 .nav-toggle img {
@@ -41,11 +35,10 @@
   height: 100%;
 }
 
-/* --- This is the new inline menu --- */
 .nav-menu-inline {
   display: flex;
   align-items: center;
-  gap: 2rem; /* Space between links and button */
+  gap: 2rem;
 }
 
 .nav-links-inline {
@@ -53,12 +46,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 1.5rem; /* Space between links */
+  gap: 1.5rem;
 }
 
 .nav-links-inline li a {
   text-decoration: none;
-  font-family: var(--font-body); /* 'Instrument Sans' */
+  font-family: var(--font-body);
   font-size: 18px;
   color: var(--color-nav-links);
   font-weight: 500;
@@ -84,44 +77,27 @@
   height: 24px;
 }
 
-
-/* ========================================
-  MOBILE RESPONSIVE STYLES (THE FIX) 
-========================================
-*/
 @media (max-width: 768px) {
-
-  /* On mobile, the .nav-menu-inline becomes a full-screen overlay */
   .nav-menu-inline {
-    position: fixed; /* Take up the whole screen */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: var(--color-bg-light);
-
-    /* Center the items vertically */
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
-    
-    /* --- 1. ADD THIS LINE --- */
-    /* This centers the button and the list horizontally */
-    align-items: center; 
+    align-items: center;
   }
 
-  /* The links stack vertically */
   .nav-links-inline {
     flex-direction: column;
     gap: 2.5rem;
-
-    /* --- 2. ADD THIS LINE --- */
-    /* This centers the link text */
     text-align: center;
   }
 
-  /* Make the links bigger and easier to tap */
   .nav-links-inline li a {
-    font-size: 1.75rem; 
+    font-size: 1.75rem;
   }
 }

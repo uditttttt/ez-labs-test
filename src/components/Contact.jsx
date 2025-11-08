@@ -1,16 +1,11 @@
-// src/components/Contact.jsx
-
-import React, { useState } from 'react'; // 1. Import useState
+import React, { useState } from 'react';
 import './Contact.css';
-// --- THIS LINE IS NOW FIXED ---
 import footerVector from '../assets/footer-vector.png';
 import footerVector2 from '../assets/footer2-vector.png';
 
-// API endpoint from your PDF
 const API_URL = 'https://vernanbackend.ezlab.in/api/contact-us/';
 
 const Contact = () => {
-  // 2. Create state for form data, errors, and submission status
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,9 +14,8 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // For loading
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 3. Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -30,45 +24,31 @@ const Contact = () => {
     });
   };
 
-  // 4. Validation function (as required)
   const validateForm = () => {
     let newErrors = {};
-    
-    // Empty Form Submission check
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.email) newErrors.email = 'Email is required';
     if (!formData.message) newErrors.message = 'Message is required';
-
-    // Email Validation check
     if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email address is invalid';
     }
-
     setErrors(newErrors);
-    // Return true if there are no errors, false otherwise
     return Object.keys(newErrors).length === 0;
   };
 
-  // 5. Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Stop default form submit
+    e.preventDefault();
     setIsSubmitted(false);
-
-    // If validation fails, stop
     if (!validateForm()) {
       return;
     }
-
-    setIsSubmitting(true); // Show loading state
-
-    // Data to be sent (as seen in your PDF)
+    setIsSubmitting(true);
     const postData = {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       message: formData.message,
     };
-
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -77,32 +57,25 @@ const Contact = () => {
         },
         body: JSON.stringify(postData),
       });
-
-      // API will return 200 or 201 on success
       if (response.ok) {
-        setIsSubmitted(true); // Show success message
-        setFormData({ name: '', email: '', phone: '', message: '' }); // Clear form
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        // Handle server errors
         setErrors({ submit: 'Submission failed. Please try again.' });
       }
     } catch (error) {
-      // Handle network errors
       setErrors({ submit: 'Network error. Please try again.' });
     }
-
-    setIsSubmitting(false); // Hide loading state
+    setIsSubmitting(false);
   };
 
   return (
     <section id="contact" className="contact-section">
-      {/* (Decorative images are the same) */}
       <img src={footerVector2} alt="" className="contact-mandala mandala-top" />
       <img src={footerVector} alt="" className="contact-mandala mandala-bottom" />
 
       <div className="contact-container">
         <div className="contact-left">
-          {/* (Text is the same) */}
           <p>
             Whether you have an idea, a question, or simply want
             to explore how V can work together, V're just a
@@ -112,14 +85,12 @@ const Contact = () => {
         </div>
 
         <div className="contact-right">
-          {/* 6. Connect the form */}
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <h2>Join the Story</h2>
             <p className="form-subtitle">
               Ready to bring your vision to life? Let's talk.
             </p>
 
-            {/* --- Name Field --- */}
             <div className="form-group">
               <input
                 type="text"
@@ -130,8 +101,7 @@ const Contact = () => {
               />
               {errors.name && <span className="error-text">{errors.name}</span>}
             </div>
-            
-            {/* --- Email Field --- */}
+
             <div className="form-group">
               <input
                 type="email"
@@ -143,7 +113,6 @@ const Contact = () => {
               {errors.email && <span className="error-text">{errors.email}</span>}
             </div>
 
-            {/* --- Phone Field --- */}
             <div className="form-group">
               <input
                 type="tel"
@@ -154,7 +123,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* --- Message Field --- */}
             <div className="form-group">
               <textarea
                 name="message"
@@ -166,13 +134,10 @@ const Contact = () => {
               {errors.message && <span className="error-text">{errors.message}</span>}
             </div>
 
-            {/* --- Submit Button --- */}
-            {/* Disable button while submitting */}
             <button type="submit" className="submit-btn" disabled={isSubmitting}>
               {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
 
-            {/* --- Success/Error Messages --- */}
             {isSubmitted && (
               <div className="success-text">Form Submitted</div>
             )}

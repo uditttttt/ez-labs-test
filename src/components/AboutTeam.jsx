@@ -1,5 +1,3 @@
-// src/components/AboutTeam.jsx
-
 import React from 'react';
 import './AboutTeam.css';
 
@@ -13,8 +11,6 @@ import arrowArt from '../assets/arrow-art.svg';
 const AboutTeam = () => {
   return (
     <section className="about-team-section">
-
-      {/* --- Decorative Images (Background) --- */}
       <img 
         src={stickyNote} 
         alt="Note about team" 
@@ -25,8 +21,6 @@ const AboutTeam = () => {
         alt="Archway" 
         className="about-archway" 
       />
-
-      {/* --- Main Content (Foreground) --- */}
       <div className="about-main-content">
         <div className="about-team-center">
           <img 
@@ -34,25 +28,19 @@ const AboutTeam = () => {
             alt="Team silhouette" 
             className="about-team-silhouette" 
           />
-          
-          {/* --- Labels with Arrows --- */}
           <div className="label-container-branding">
             <img src={arrowBranding} alt="arrow" className="arrow-branding" />
             <span className="text-branding">Branding Experts</span>
           </div>
-          
           <div className="label-container-film">
             <img src={arrowFilm} alt="arrow" className="arrow-film" />
             <span className="text-film">Film Makers</span>
           </div>
-          
           <div className="label-container-art">
             <img src={arrowArt} alt="arrow" className="arrow-art" />
             <span className="text-art">Art Curators</span>
           </div>
         </div>
-
-        {/* --- THIS IS THE NEW CONTAINER --- */}
         <div className="about-footer-content">
           <h2 className="about-headline">
             Take a closer look at the stories V bring to life.
@@ -62,7 +50,6 @@ const AboutTeam = () => {
           </button>
         </div>
       </div>
-
     </section>
   );
 };

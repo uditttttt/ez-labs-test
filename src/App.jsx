@@ -3,7 +3,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutTeam from './components/AboutTeam';
-import Contact from './components/Contact'; // 1. Import
+import Contact from './components/Contact'; 
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <main>
         <Hero />
         <AboutTeam />
-        <Contact /> {/* 2. Add it here */}
+        <Contact /> 
       </main>
     </div>
   );

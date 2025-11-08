@@ -1,34 +1,22 @@
-/* src/index.css */
-
-/* --- FONT IMPORT --- */
 @import url('https://fonts.googleapis.com/css2?family=Halant&family=Instrument+Sans&family=Island+Moments&display=swap');
 
 :root {
-  /* --- FONT FAMILIES --- */
   --font-heading: 'Island Moments', cursive;
   --font-subheading: 'Halant', serif;
   --font-body: 'Instrument Sans', sans-serif;
 
-  /* --- COLORS --- */
   --color-headline: #0F3255;
   --color-subheadline-orange: #F15D2B;
   --color-button-orange: #F15D2B;
   --color-body-text: #252729;
   --color-nav-links: #000000;
-  
-  /* --- THIS IS THE FIX --- */
-  /* This is the light, off-white background color */
-  --color-bg: #fdfaf9; 
-  
+  --color-bg: #fdfaf9;
   --color-scroll-bar: #FDDCC1;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
-  
-  /* --- THIS IS THE FIX --- */
-  /* Apply the light background color */
   background-color: var(--color-bg);
 }
 
@@ -38,10 +26,7 @@ body {
   padding: 0;
 }
 
-/* --- ADD THIS RULE --- */
-/* This targets the main <div> in App.jsx */
 .App {
-  /* This applies your texture image */
   background-image: url('./assets/dotted-texture.png');
   background-repeat: repeat;
 }
