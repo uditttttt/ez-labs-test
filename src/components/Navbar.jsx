@@ -22,7 +22,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <nav className="nav-menu-inline">
             <ul className="nav-links-inline">
-              <li><a href="#" onClick={handleLinkClick}>Services</a></li>
+              <li><a href="#services" onClick={handleLinkClick}>Services</a></li>
               <li><a href="#" onClick={handleLinkClick}>Their Stories</a></li>
               <li><a href="#" onClick={handleLinkClick}>Our Story</a></li>
               <li><a href="#" onClick={handleLinkClick}>Varnan</a></li>

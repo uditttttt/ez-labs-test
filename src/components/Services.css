@@ -1,0 +1,135 @@
+.services-section {
+  padding: 8rem 5%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.services-headline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.services-headline {
+  font-family: var(--font-subheading);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--color-body-text);
+  margin: 0;
+}
+
+.headline-brush {
+  width: 100%;
+  max-width: 793px;
+  height: auto;
+  margin-top: -1rem;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 6rem;
+  padding: 2rem 0;
+}
+
+.service-card {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 410px;
+}
+
+.service-card-image {
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.05);
+}
+
+.service-card p {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.service-card-tape {
+  position: absolute;
+  width: 234px;
+  height: auto;
+  z-index: 10;
+}
+
+.tape-1 {
+  top: -1.5rem;
+  left: -2rem;
+  transform: rotate(-15deg);
+}
+.tape-2 {
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-44%);
+}
+.tape-3 {
+  top: -1.5rem;
+  right: -2rem;
+  transform: rotate(15deg);
+}
+
+.card-1 {
+  transform: rotate(-5deg);
+}
+.card-2 {
+  transform: rotate(2deg);
+}
+.card-3 {
+  transform: rotate(4deg);
+}
+
+.services-bottom-border {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50vw);
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .card-1, .card-2, .card-3 {
+    transform: rotate(0deg);
+  }
+
+  .tape-1, .tape-3 {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .services-headline {
+    font-size: 30px;
+    text-align: center;
+  }
+}
